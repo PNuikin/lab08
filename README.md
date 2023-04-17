@@ -167,12 +167,12 @@ $ gist REPORT.md
 
 ```sh
 $ cat >> CMakeLists.txt <<EOF
-> cmake_minimum_required(VERSION 3.4)
-> project(formatter_lib)
-> set(CMAKE_CXX_STANDART 11)
-> set(CMAKE_CXX_STANDART_REQUIRED ON)
-> add_library(formatter_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/formatter.cpp)
-> EOF
+cmake_minimum_required(VERSION 3.4)
+project(formatter_lib)
+set(CMAKE_CXX_STANDART 11)
+set(CMAKE_CXX_STANDART_REQUIRED ON)
+add_library(formatter_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/formatter.cpp)
+EOF
 $ cmake -B build
 -- The C compiler identification is GNU 11.3.0
 -- The CXX compiler identification is GNU 11.3.0
@@ -204,15 +204,15 @@ $ cmake --build build
 
 ```sh
 $ cat >> CMakeLists.txt <<EOF
-> cmake_minimum_required(VERSION 3.4)
-> project(formatter_ex_lib)
-> set(CMAKE_CXX_STANDARD 11)
-> set(CMAKE_CXX_STANDARD_REQUIRED ON)
-> add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_lib formatter_lib_dir)
-> add_library(formatter_ex_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex.cpp)
-> target_include_directories(formatter_ex_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../formatter_lib)
-> target_link_libraries(formatter_ex_lib formatter_lib)
-> EOF
+cmake_minimum_required(VERSION 3.4)
+project(formatter_ex_lib)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_lib formatter_lib_dir)
+add_library(formatter_ex_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex.cpp)
+target_include_directories(formatter_ex_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../formatter_lib)
+target_link_libraries(formatter_ex_lib formatter_lib)
+EOF
 $ cmake -B build
 -- The C compiler identification is GNU 11.3.0
 -- The CXX compiler identification is GNU 11.3.0
@@ -247,15 +247,15 @@ $ cmake -B build
 
 ```sh
 hello_world_application$ cat >> CMakeLists.txt <<EOF
-> cmake_minimum_required(VERSION 3.4)
-> project(hello_world)
-> set(CMAKE_CXX_STANDARD 11)
-> set(CMAKE_CXX_STANDARD_REQUIRED ON)
-> add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib formatter_ex_lib_dir)
-> add_executable(hello_world ${CMAKE_CURRENT_SOURCE_DIR}/hello_world.cpp)
-> target_include_directories(hello_world PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib)
-> target_link_libraries(hello_world formatter_ex_lib)
-> EOF
+cmake_minimum_required(VERSION 3.4)
+project(hello_world)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib formatter_ex_lib_dir)
+add_executable(hello_world ${CMAKE_CURRENT_SOURCE_DIR}/hello_world.cpp)
+target_include_directories(hello_world PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib)
+target_link_libraries(hello_world formatter_ex_lib)
+EOF
 hello_world_application$ cmake -B build
 -- The C compiler identification is GNU 11.3.0
 -- The CXX compiler identification is GNU 11.3.0
@@ -286,26 +286,26 @@ hello_world_application$ cmake --build build
 
 ```sh
 solver_lib$ cat >> CMakeLists.txt <<EOF
-> cmake_minimum_required(VERSION 3.4)
-> project(solver_lib)
-> set(CMAKE_CXX_STANDARD 11)
-> set(CMAKE_CXX_STANDARD_REQUIRED ON)
-> add_library(solver_lib ${CMAKE_CURRENT_SOURCE_DIR}/solver.cpp)
-> EOF
+cmake_minimum_required(VERSION 3.4)
+project(solver_lib)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_library(solver_lib ${CMAKE_CURRENT_SOURCE_DIR}/solver.cpp)
+EOF
 solver_application$ cat >> CMakeLists.txt <<EOF
-> cmake_minimum_required(VERSION 3.4)
-> project(solver)
-> set(CMAKE_CXX_STANDARD 11)
-> set(CMAKE_CXX_STANDARD_REQUIRED ON)
-> add_subdirectory(\${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib formatter_ex_lib_dir)
-> add_subdirectory(\${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib solver_lib_dir)
-> add_executable(solver \${CMAKE_CURRENT_SOURCE_DIR}/equation.cpp)
-> target_include_directories(formatter_ex_lib PUBLIC
-> \${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib
-> \${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib
-> )
-> target_link_libraries(solver formatter_ex_lib solver_lib)
-> EOF
+cmake_minimum_required(VERSION 3.4)
+project(solver)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_subdirectory(\${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib formatter_ex_lib_dir)
+add_subdirectory(\${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib solver_lib_dir)
+add_executable(solver \${CMAKE_CURRENT_SOURCE_DIR}/equation.cpp)
+target_include_directories(formatter_ex_lib PUBLIC
+\${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib
+\${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib
+)
+target_link_libraries(solver formatter_ex_lib solver_lib)
+EOF
 solver_application$ cmake -B build
 -- The C compiler identification is GNU 11.3.0
 -- The CXX compiler identification is GNU 11.3.0
