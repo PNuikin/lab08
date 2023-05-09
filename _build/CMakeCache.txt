@@ -15,7 +15,7 @@
 ########################
 
 //Build examples
-BUILD_EXAMPLES:BOOL=OFF
+BUILD_EXAMPLES:BOOL=ON
 
 //Builds the googlemock subproject
 BUILD_GMOCK:BOOL=ON
