@@ -1,3 +1,0 @@
-/home/pavel/PNuikin/workspace/projects/lab03_homework/formatter_lib/build/CMakeFiles/formatter_lib.dir
-/home/pavel/PNuikin/workspace/projects/lab03_homework/formatter_lib/build/CMakeFiles/edit_cache.dir
-/home/pavel/PNuikin/workspace/projects/lab03_homework/formatter_lib/build/CMakeFiles/rebuild_cache.dir
