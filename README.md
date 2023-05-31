@@ -85,7 +85,8 @@ $ docker build -t logger .
 ```
 <details><summary>Output</summary>
 <p>
-```console
+
+```sh
 Sending build context to Docker daemon  8.428MB
 Step 1/12 : FROM ubuntu:18.04
 18.04: Pulling from library/ubuntu
