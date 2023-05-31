@@ -21,4 +21,4 @@ jobs:
     run: cmake --build ${{github.workspace}}/solver_application/build
     
   - name: Build docker
-    run: docker build -t logger
+    run: docker build -t logger .
