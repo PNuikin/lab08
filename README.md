@@ -82,8 +82,10 @@ EOF
 
 ```sh
 $ docker build -t logger .
+```
 <details><summary>Output</summary>
 <p>
+```console
 Sending build context to Docker daemon  8.428MB
 Step 1/12 : FROM ubuntu:18.04
 18.04: Pulling from library/ubuntu
@@ -1002,9 +1004,9 @@ Removing intermediate container 3c69ca2ef269
  ---> fdaa85dd1599
 Successfully built fdaa85dd1599
 Successfully tagged logger:latest
+```
 </p>
 </details>
-```
 
 ```sh
 $ docker images
